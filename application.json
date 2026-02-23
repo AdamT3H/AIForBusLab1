@@ -1,0 +1,51 @@
+{
+    "_id": "699cabb64ae8991e9bf1bfad",
+    "name": "uieditor-7211",
+    "slug": "uieditor-7211",
+    "organizationId": "Org",
+    "isPublic": false,
+    "isMenu": false,
+    "isShowPlatformTag": true,
+    "createdAt": "2026-02-23T19:34:14.564Z",
+    "updatedAt": "2026-02-24T00:35:00.513Z",
+    "deleted": false,
+    "pages": [
+        {
+            "_id": "home",
+            "isDefault": true
+        }
+    ],
+    "policies": [
+        {
+            "permission": "makePublic:applications",
+            "groups": [],
+            "users": []
+        },
+        {
+            "permission": "read:applications",
+            "groups": [],
+            "users": []
+        },
+        {
+            "permission": "publish:applications",
+            "groups": [],
+            "users": []
+        },
+        {
+            "permission": "manage:applications",
+            "groups": [],
+            "users": []
+        }
+    ],
+    "settings_data": {
+        "httpIns": []
+    },
+    "gitApplicationMetadata": {
+        "browserSupportedRemoteUrl": "https://github.com/AdamT3H/AIForBusLab1",
+        "defaultApplicationId": "uieditor-7211",
+        "defaultBranchName": "main",
+        "isRepoPrivate": true,
+        "remoteUrl": "git@github.com:AdamT3H/AIForBusLab1.git",
+        "repoName": "AIForBusLab1"
+    }
+}
