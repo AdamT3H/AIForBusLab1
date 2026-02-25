@@ -7,12 +7,24 @@
     "isMenu": false,
     "isShowPlatformTag": true,
     "createdAt": "2026-02-23T19:34:14.564Z",
-    "updatedAt": "2026-02-24T00:35:00.513Z",
+    "updatedAt": "2026-02-24T13:27:31.332Z",
     "deleted": false,
     "pages": [
         {
             "_id": "home",
             "isDefault": true
+        },
+        {
+            "_id": "Company",
+            "isDefault": false
+        },
+        {
+            "_id": "Company Jobs",
+            "isDefault": false
+        },
+        {
+            "_id": "Recruit",
+            "isDefault": false
         }
     ],
     "policies": [
@@ -47,5 +59,8 @@
         "isRepoPrivate": true,
         "remoteUrl": "git@github.com:AdamT3H/AIForBusLab1.git",
         "repoName": "AIForBusLab1"
+    },
+    "appLayout": {
+        "type": "FLUID"
     }
 }

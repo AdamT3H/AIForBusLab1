@@ -170,7 +170,7 @@
             "datasource": {
                 "name": "DEFAULT_REST_DATASOURCE",
                 "datasourceConfiguration": {
-                    "url": "{{main.env.nodeRedUrl}}/delete"
+                    "url": "{{main.env.nodeRedUrl}}/company/delete"
                 },
                 "invalids": [],
                 "isValid": true,
@@ -178,18 +178,23 @@
                 "messages": []
             },
             "executeOnLoad": false,
-            "pageId": "home",
+            "pageId": "Company",
             "actionConfiguration": {
                 "timeoutInMillisecond": 10000,
                 "encodeParamsToggle": true,
-                "httpMethod": "DELETE",
+                "httpMethod": "PUT",
                 "headers": [
                     {
                         "key": "content-type",
                         "value": "application/json"
                     }
                 ],
-                "queryParameters": [],
+                "queryParameters": [
+                    {
+                        "key": "_id",
+                        "value": "{{Table1.selectedRow._id}}"
+                    }
+                ],
                 "bodyFormData": [],
                 "formData": {
                     "apiContentType": "application/json"
@@ -199,27 +204,28 @@
                         "value": true
                     }
                 ],
-                "body": "{\n\t\"_id\":{{JSON.stringify(ProductIdDelete.text)}}\n}"
+                "body": ""
             },
             "dynamicBindingPathList": [
                 {
-                    "key": "body"
+                    "key": "datasourceUrl"
                 },
                 {
-                    "key": "datasourceUrl"
+                    "key": "queryParameters[0].value"
                 }
             ],
             "isValid": true,
             "invalids": [],
             "jsonPathKeys": [
                 "main.env.nodeRedUrl",
-                "JSON.stringify(ProductIdDelete.text)"
+                "Table1.selectedRow._id",
+                "JSON.stringify()"
             ],
             "userSetOnLoad": false,
             "confirmBeforeExecute": false
         },
         "createdAt": "2026-02-23T20:50:25.298Z",
-        "updatedAt": "2026-02-23T21:39:39.591Z",
+        "updatedAt": "2026-02-24T23:39:23.746Z",
         "deleted": false,
         "policies": [
             {
@@ -301,7 +307,675 @@
             "confirmBeforeExecute": false
         },
         "createdAt": "2026-02-23T20:50:28.238Z",
-        "updatedAt": "2026-02-23T21:13:22.628Z",
+        "updatedAt": "2026-02-24T09:58:39.871Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699d75f6062893441e368785",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "create",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/company/create"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": false,
+            "pageId": "Company",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "POST",
+                "headers": [
+                    {
+                        "key": "content-type",
+                        "value": "application/json"
+                    }
+                ],
+                "queryParameters": [],
+                "body": "{\n\t\"name\":{{JSON.stringify(CompanyNameCreate.text)}},\n\t\"street\":{{JSON.stringify(CompanyStreetCreate.text)}},\n\t\"city\":{{JSON.stringify(CompanyCityCreate.text)}},\n\t\"country\":{{JSON.stringify(CompanyCountryCreate.text)}},\n\t\"phone\":{{JSON.stringify(CompanyPhoneCreate.text)}},\n\t\"email\":{{JSON.stringify(CompanyEmailCreate.text)}},\n\t\"website\":{{JSON.stringify(CompanyWebsiteCreate.text)}},\n\t\"tax_id\":{{JSON.stringify(CompanyTaxIdCreate.text)}},\n\t\"company_registry\":{{JSON.stringify(CompanyRegistryCreate.text)}},\n\t\"currency\":{{JSON.stringify(CompanyCurrencyCreate.text)}}\n}",
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "none"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ]
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "datasourceUrl"
+                },
+                {
+                    "key": "body"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl",
+                "JSON.stringify(CompanyNameCreate.text)",
+                "JSON.stringify(CompanyStreetCreate.text)",
+                "JSON.stringify(CompanyCityCreate.text)",
+                "JSON.stringify(CompanyCountryCreate.text)",
+                "JSON.stringify(CompanyPhoneCreate.text)",
+                "JSON.stringify(CompanyEmailCreate.text)",
+                "JSON.stringify(CompanyWebsiteCreate.text)",
+                "JSON.stringify(CompanyTaxIdCreate.text)",
+                "JSON.stringify(CompanyRegistryCreate.text)",
+                "JSON.stringify(CompanyCurrencyCreate.text)"
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T09:57:10.229Z",
+        "updatedAt": "2026-02-24T20:19:05.684Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699d7875062893441e368786",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "read",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/company/read"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": true,
+            "pageId": "Company",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "GET",
+                "headers": [
+                    {
+                        "key": "content-type",
+                        "value": "application/json"
+                    }
+                ],
+                "queryParameters": [],
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "application/json"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ]
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "datasourceUrl"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl"
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T10:07:49.117Z",
+        "updatedAt": "2026-02-24T23:12:41.882Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699dfb1d062893441e36878f",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "read",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/recruit/read"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": true,
+            "pageId": "Recruit",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "GET",
+                "headers": [
+                    {
+                        "key": "content-type",
+                        "value": "application/json"
+                    }
+                ],
+                "queryParameters": [],
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "application/json"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ]
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "datasourceUrl"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl"
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T19:25:17.292Z",
+        "updatedAt": "2026-02-24T23:45:15.640Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699dfb1d062893441e368790",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "update",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/recruit/update"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": false,
+            "pageId": "Recruit",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "PUT",
+                "headers": [
+                    {
+                        "key": "content-type",
+                        "value": "application/json"
+                    }
+                ],
+                "queryParameters": [],
+                "body": "{\n\t\"_id\":{{JSON.stringify(Table1.selectedRow._id)}},\n\t\"job_title\":{{JSON.stringify(JobTitleUpdate.text)}},\n\t\"departament\":{{JSON.stringify(JobDepartamentUpdate.text)}},\n\t\"job_type\":{{JSON.stringify(JobTypeUpdate.text)}},\n\t\"skills\":{{JSON.stringify(JobSkillsUpdate.text)}},\n\t\"expirience\":{{JSON.stringify(JobExpirienceUpdate.text)}},\n\t\"min_salary\":{{JSON.stringify(JobMinSalaryUpdate.text)}},\n\t\"max_salary\":{{JSON.stringify(JobMaxSalaryUpdate.text)}},\n\t\"currency\":{{JSON.stringify(JobCurrencyUpdate.text)}},\n\t\"company_id\":{{JSON.stringify(JobCompanyIdUpdate.text)}},\n\t\"discription\":{{JSON.stringify(JobDiscriptionUpdate.text)}},\n\t\"create\":{{JSON.stringify(Table1.selectedRow.create)}},\n\t\"close\":{{JSON.stringify(Table1.selectedRow.close)}}\n}",
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "application/json"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ]
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "body"
+                },
+                {
+                    "key": "datasourceUrl"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl",
+                "JSON.stringify(Table1.selectedRow._id)",
+                "JSON.stringify(JobTitleUpdate.text)",
+                "JSON.stringify(JobDepartamentUpdatee.text)",
+                "JSON.stringify(JobTypeUpdate.text)",
+                "JSON.stringify(JobSkillsUpdate.text)",
+                "JSON.stringify(JobExpirienceUpdate.text)",
+                "JSON.stringify(JobMinSalaryUpdate.text)",
+                "JSON.stringify(JobMaxSalaryUpdate.text)",
+                "JSON.stringify(JobCurrencyUpdate.text)",
+                "JSON.stringify(JobCompanyIdUpdate.text)",
+                "JSON.stringify(JobDiscriptionUpdate.text)",
+                "JSON.stringify(Table1.selectedRow.create)",
+                "JSON.stringify(Table1.selectedRow.close)",
+                "JSON.stringify(JobDepartamentUpdate.text)"
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T19:25:17.292Z",
+        "updatedAt": "2026-02-24T23:26:14.218Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699dfb1d062893441e368791",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "remove",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/recruit/delete"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": false,
+            "pageId": "Recruit",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "PUT",
+                "headers": [
+                    {
+                        "key": "content-type",
+                        "value": "application/json"
+                    }
+                ],
+                "queryParameters": [
+                    {
+                        "key": "_id",
+                        "value": "{{Table1.selectedRow._id}}"
+                    }
+                ],
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "application/json"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ],
+                "body": ""
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "datasourceUrl"
+                },
+                {
+                    "key": "queryParameters[0].value"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl",
+                "Table1.selectedRow._id"
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T19:25:17.292Z",
+        "updatedAt": "2026-02-24T23:40:12.032Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699dfb1d062893441e368792",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "create",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/recruit/create"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": false,
+            "pageId": "Recruit",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "POST",
+                "headers": [
+                    {
+                        "key": "content-type",
+                        "value": "application/json"
+                    }
+                ],
+                "queryParameters": [],
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "none"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ],
+                "body": "{\n\t\"job_title\":{{JSON.stringify(JobTitleCreate.text)}},\n\t\"departament\":{{JSON.stringify(JobDepartamentCreate.text)}},\n\t\"job_type\":{{JSON.stringify(JobTypeCreate.text)}},\n\t\"skills\":{{JSON.stringify(JobSkillsCreate.text)}},\n\t\"expirience\":{{JSON.stringify(JobExpirienceCreate.text)}},\n\t\"min_salary\":{{JSON.stringify(JobMinSalaryCreate.text)}},\n\t\"max_salary\":{{JSON.stringify(JobMaxSalaryCreate.text)}},\n\t\"currency\":{{JSON.stringify(JobCurrencyCreate.text)}},\n\t\"company_id\":{{JSON.stringify(JobCompanyIdCreate.text)}},\n\t\"discription\":{{JSON.stringify(JobDiscriptionCreate.text)}}\n}"
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "body"
+                },
+                {
+                    "key": "datasourceUrl"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl",
+                "JSON.stringify(JobTitleCreate.text)",
+                "JSON.stringify(JobDepartamentCreate.text)",
+                "JSON.stringify(JobTypeCreate.text)",
+                "JSON.stringify(JobSkillsCreate.text)",
+                "JSON.stringify(JobExpirienceCreate.text)",
+                "JSON.stringify(JobMinSalaryCreate.text)",
+                "JSON.stringify(JobMaxSalaryCreate.text)",
+                "JSON.stringify(JobCurrencyCreate.text)",
+                "JSON.stringify(JobCompanyIdCreate.text)",
+                "JSON.stringify(JobDiscriptionCreate.text)"
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T19:25:17.292Z",
+        "updatedAt": "2026-02-24T20:24:48.789Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699e0466062893441e368793",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "update",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/company/update"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": false,
+            "pageId": "Company",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "PUT",
+                "headers": [
+                    {
+                        "key": "content-type",
+                        "value": "application/json"
+                    }
+                ],
+                "queryParameters": [],
+                "body": "{\n\t\"_id\":{{JSON.stringify(Table1.selectedRow._id)}},\n\t\"name\":{{JSON.stringify(CompanyNameUpdate.text)}},\n\t\"street\":{{JSON.stringify(CompanyStreetUpdate.text)}},\n\t\"city\":{{JSON.stringify(CompanyCityUpdate.text)}},\n\t\"country\":{{JSON.stringify(CompanyCountryUpdate.text)}},\n\t\"phone\":{{JSON.stringify(CompanyPhoneUpdate.text)}},\n\t\"email\":{{JSON.stringify(CompanyEmailUpdate.text)}},\n\t\"website\":{{JSON.stringify(CompanyWebsiteUpdate.text)}},\n\t\"tax_id\":{{JSON.stringify(CompanyTaxIdUpdate.text)}},\n\t\"company_registry\":{{JSON.stringify(CompanyRegistryUpdate.text)}},\n\t\"currency\":{{JSON.stringify(CompanyCurrencyUpdate.text)}}\n}",
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "application/json"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ]
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "datasourceUrl"
+                },
+                {
+                    "key": "body"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl",
+                "JSON.stringify(Table1.selectedRow._id)",
+                "JSON.stringify(CompanyNameUpdate.text)",
+                "JSON.stringify(CompanyStreetUpdate.text)",
+                "JSON.stringify(CompanyCityUpdate.text)",
+                "JSON.stringify(CompanyCountryUpdate.text)",
+                "JSON.stringify(CompanyPhoneUpdate.text)",
+                "JSON.stringify(CompanyEmailUpdate.text)",
+                "JSON.stringify(CompanyWebsiteUpdate.text)",
+                "JSON.stringify(CompanyTaxIdUpdate.text)",
+                "JSON.stringify(CompanyRegistryUpdate.text)",
+                "JSON.stringify(CompanyCurrencyUpdate.text)"
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T20:04:54.245Z",
+        "updatedAt": "2026-02-24T23:03:46.787Z",
+        "deleted": false,
+        "policies": [
+            {
+                "permission": "read:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "manage:actions",
+                "groups": [],
+                "users": []
+            },
+            {
+                "permission": "execute:actions",
+                "groups": [],
+                "users": []
+            }
+        ]
+    },
+    {
+        "_id": "699e3796062893441e368794",
+        "applicationId": "uieditor-7211",
+        "organizationId": "Org",
+        "pluginType": "API",
+        "pluginId": "API",
+        "Action": {
+            "name": "readJobsForCompany",
+            "datasource": {
+                "name": "DEFAULT_REST_DATASOURCE",
+                "datasourceConfiguration": {
+                    "url": "{{main.env.nodeRedUrl}}/recruit/read?company_id={{appsmith.URL.queryParams.company_id || \"\"}}"
+                },
+                "invalids": [],
+                "isValid": true,
+                "pluginId": "API",
+                "messages": []
+            },
+            "executeOnLoad": false,
+            "pageId": "Company Jobs",
+            "actionConfiguration": {
+                "timeoutInMillisecond": 10000,
+                "encodeParamsToggle": true,
+                "httpMethod": "GET",
+                "headers": [],
+                "queryParameters": [],
+                "bodyFormData": [],
+                "formData": {
+                    "apiContentType": "none"
+                },
+                "pluginSpecifiedTemplates": [
+                    {
+                        "value": true
+                    }
+                ],
+                "path": ""
+            },
+            "dynamicBindingPathList": [
+                {
+                    "key": "datasourceUrl"
+                }
+            ],
+            "isValid": true,
+            "invalids": [],
+            "jsonPathKeys": [
+                "main.env.nodeRedUrl",
+                "appsmith.URL.queryParams.company_id || \"\""
+            ],
+            "userSetOnLoad": false,
+            "confirmBeforeExecute": false
+        },
+        "createdAt": "2026-02-24T23:43:18.381Z",
+        "updatedAt": "2026-02-25T00:21:56.890Z",
         "deleted": false,
         "policies": [
             {
